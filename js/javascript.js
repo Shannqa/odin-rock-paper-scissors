@@ -14,19 +14,21 @@ Algorithm:
 - Show a message announcing the winner.
 
 */
-
-function GetComputerChoice () {
   const rock = "rock";
   const paper = "paper";
   const scissors = "scissors";
-
-  let randomNumber = Math.floor(Math.random() * 3);
   let computerSelection;
+  let playerScore;
+  let computerScore;
+
+function getComputerChoice () {
+    let randomNumber = Math.floor(Math.random() * 3);
+  
   
   if (randomNumber === 0) {
     computerSelection = rock;
   } else if (randomNumber === 1) {
-    computerSelection = paper 
+    computerSelection = paper; 
   } else {
     computerSelection = scissors;
     }
@@ -35,7 +37,33 @@ console.log("Computer selected: " + computerSelection);
 
 }
 
-let playerSelection = prompt("Pick rock, paper or scissors");
+function playRound() {
 
-GetComputerChoice();
-console.log("Player selected: " + playerSelection);
+  console.log("Round 1:");
+  let playerSelection = prompt("Pick rock, paper or scissors").toLowerCase();
+
+  getComputerChoice();                 
+  console.log("Player selected: " + playerSelection);
+
+  if (computerSelection === rock && playerSelection === scissors) {
+    console.log("You lose! Rock beats scissors!");
+  } else if (computerSelection === scissors && playerSelection === paper) {
+    console.log("You lose! Scissors beat paper!");
+    } else if (computerSelection === paper && playerSelection === rock) {
+      console.log("You lose! Paper beats beats rock!");
+    } else if (computerSelection === paper && playerSelection === scissors) {
+      console.log("You win! Scissors beat paper!");
+    } else if (computerSelection === scissors && playerSelection === rock) {
+      console.log("You win! Rock beats scissors!");
+    } else if (computerSelection === rock && playerSelection === paper) {
+      console.log("You win! Paper beats rock!");
+    } else if (computerSelection === playerSelection) {
+      console.log("Tie!");
+    }
+
+
+
+
+}
+
+playRound()
