@@ -17,30 +17,30 @@ Algorithm:
   const rock = "rock";
   const paper = "paper";
   const scissors = "scissors";
-  let computerSelection;
+
   let playerScore;
   let computerScore;
 
 function getComputerChoice () {
-    let randomNumber = Math.floor(Math.random() * 3);
-  
-  
+  let randomNumber = Math.floor(Math.random() * 3);
+    
   if (randomNumber === 0) {
-    computerSelection = rock;
+    console.log("Computer selected: " + rock);
+    return rock;
   } else if (randomNumber === 1) {
-    computerSelection = paper; 
+    console.log("Computer selected: " + paper);
+    return paper; 
   } else {
-    computerSelection = scissors;
+    console.log("Computer selected: " + scissors);
+    return scissors;
     }
-
-console.log("Computer selected: " + computerSelection);
-
 }
 
-function playRound() {
+const playerSelection = prompt("Pick rock, paper or scissors").toLowerCase();
+const computerSelection = getComputerChoice()
+/*
+function playRound(playerSelection, computerSelection) {
 
-  console.log("Round 1:");
-  let playerSelection = prompt("Pick rock, paper or scissors").toLowerCase();
 
   getComputerChoice();                 
   console.log("Player selected: " + playerSelection);
@@ -61,9 +61,8 @@ function playRound() {
       console.log("Tie!");
     }
 
-
-
-
 }
 
 playRound()
+*/
+//function game() 
