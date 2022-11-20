@@ -21,18 +21,21 @@ function GetComputerChoice () {
   const scissors = "scissors";
 
   let randomNumber = Math.floor(Math.random() * 3);
-  let computerChoice;
+  let computerSelection;
   
   if (randomNumber === 0) {
-    computerChoice = rock;
+    computerSelection = rock;
   } else if (randomNumber === 1) {
-      computerChoice = paper 
+    computerSelection = paper 
   } else {
-      computerChoice = scissors;
+    computerSelection = scissors;
     }
 
-console.log(computerChoice);
+console.log("Computer selected: " + computerSelection);
 
 }
 
+let playerSelection = prompt("Pick rock, paper or scissors");
+
 GetComputerChoice();
+console.log("Player selected: " + playerSelection);
