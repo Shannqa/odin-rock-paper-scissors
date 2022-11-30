@@ -14,6 +14,12 @@ Algorithm:
 - Show a message announcing the winner.
 
 */
+
+
+
+
+
+let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -28,37 +34,68 @@ function getComputerChoice () {
     return "scissors";
   }
 }
+const rock = document.getElementById('rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const div = document.querySelector('.text');
 
-function getPlayerChoice() {
-  return prompt("Pick rock, paper or scissors").toLowerCase();
+rock.addEventListener('click', function () {
+  choice ('rock');
+});
+paper.addEventListener('click', function () {
+  choice ('paper');
+});
+scissors.addEventListener('click', function () {
+  choice ('scissors');
+});
+
+function choice (arg) {
+  playerSelection = arg;
+  console.log(playerSelection);
+  game();
 }
+function game() {
+  let computerSelection = getComputerChoice();
+  playRound(computerSelection, playerSelection); 
+}
+
+function addText(text) {
+  const p = document.createElement('p');
+  p.textContent = text;
+  div.appendChild(p);
+}
+
+  // function getPlayerChoice() {
+  // return prompt("Pick rock, paper or scissors").toLowerCase();
+  // }
 
 function playRound(computerSelection, playerSelection) { 
 
   if (computerSelection === "rock" && playerSelection === "scissors") {
-    console.log("You lose! Rock beats scissors!");
+    addText(`You lose! ${computerSelection} beats ${playerSelection}!`);
     computerScore += 1;
   } else if (computerSelection === "scissors" && playerSelection === "paper") {
-    console.log("You lose! Scissors beat paper!");
+    addText(`You lose! ${computerSelection} beat ${playerSelection}!`);
     computerScore += 1;
   } else if (computerSelection === "paper" && playerSelection === "rock") {
-    console.log("You lose! Paper beats beats rock!");
+    addText(`You lose! ${computerSelection} beats ${playerSelection}!`);
     computerScore += 1;
   } else if (computerSelection === "paper" && playerSelection === "scissors") {
-    console.log("You win! Scissors beat paper!");
+    addText(`You win! ${playerSelection} beat ${computerSelection}!`);
     playerScore += 1;
   } else if (computerSelection === "scissors" && playerSelection === "rock") {
-    console.log("You win! Rock beats scissors!");
+    addText(`You win! ${playerSelection} beats ${computerSelection}!`);
     playerScore += 1;
   } else if (computerSelection === "rock" && playerSelection === "paper") {
-    console.log("You win! Paper beats rock!");
+    addText(`You win! ${playerSelection} beats ${computerSelection}!`);
     playerScore += 1;
   } else if (computerSelection === playerSelection) {
-    console.log("Tie!");
+    addText(`Tie!`);
   }
 }
 
 
+/*
 
 function game() {
   for (let i = 1; i <= 5; i++) {
@@ -79,4 +116,7 @@ function game() {
  
 }
 
+
+
 game();
+*/
