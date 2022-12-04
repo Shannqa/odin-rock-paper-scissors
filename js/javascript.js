@@ -108,22 +108,22 @@ function getScore(score) {
 
 function playRound(computerSelection, playerSelection) { 
   if (computerSelection === "rock" && playerSelection === "scissors") {
-    getScore(`You lose! ${computerSelection} beats ${playerSelection}!`);
+    getScore(`You lose! Rock beats scissors!`);
     computerScore += 1;
   } else if (computerSelection === "scissors" && playerSelection === "paper") {
-    getScore(`You lose! ${computerSelection} beat ${playerSelection}!`);
+    getScore(`You lose! Scissors beat paper!`);
     computerScore += 1;
   } else if (computerSelection === "paper" && playerSelection === "rock") {
-    getScore(`You lose! ${computerSelection} beats ${playerSelection}!`);
+    getScore(`You lose! Paper beats rock`);
     computerScore += 1;
   } else if (computerSelection === "paper" && playerSelection === "scissors") {
-    getScore(`You win! ${playerSelection} beats ${computerSelection}!`);
+    getScore(`You win! Paper beats scissors!`);
     playerScore += 1;
   } else if (computerSelection === "scissors" && playerSelection === "rock") {
-    getScore(`You win! ${playerSelection} beats ${computerSelection}!`);
+    getScore(`You win! Scissors beat rock!`);
     playerScore += 1;
   } else if (computerSelection === "rock" && playerSelection === "paper") {
-    getScore(`You win! ${playerSelection} beats ${computerSelection}!`);
+    getScore(`You win! Rock beats paper!`);
     playerScore += 1;
   } else if (computerSelection === playerSelection) {
     getScore(`Tie!`);
