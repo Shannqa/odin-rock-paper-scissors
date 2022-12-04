@@ -26,12 +26,16 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const rounds = document.querySelector('.rounds');
 const scores = document.querySelector('.scores');
+const button = document.querySelector('.button');
+const buttons = document.querySelector('.buttons');
+const tryagain = document.querySelector('#tryagain');
 
 rock.addEventListener('click', function () {getPlayerChoice ('rock');});
 paper.addEventListener('click', function () {getPlayerChoice ('paper');});
 scissors.addEventListener('click', function () {getPlayerChoice ('scissors');});
 
 const h2 = document.createElement('h2');
+button.style.display = "none";
 h2.textContent = 'Round: ' + round;
 rounds.appendChild(h2);
 
@@ -62,11 +66,23 @@ function playGame() {
 } 
 
 function playAgain() {
-  rock.removeEventListener('click', function () {getPlayerChoice ('rock');});
-  paper.removeEventListener('click', function () {getPlayerChoice ('paper');});
-  scissors.removeEventListener('click', function () {getPlayerChoice ('scissors');});
+  button.style.display = 'flex';
+  buttons.style.display = 'none';
+  tryagain.addEventListener('click', again)
+  
 }
 
+function again () {
+  playerScore = 0;
+  computerScore = 0;
+  round = 0;
+  h2.textContent = 'Round: ' + round;
+  while (scores.hasChildNodes()) {
+  scores.removeChild(scores.firstChild); 
+  }
+  button.style.display = 'none';
+  buttons.style.display = 'flex';
+}
 function getFinalScore() {
   if (round === 5) {
     if (computerScore < playerScore) {
@@ -77,7 +93,7 @@ function getFinalScore() {
       getScore ("It's a tie!");
     }
     getScore("Final result - Computer: " + computerScore + " Player: " + playerScore);
-    rock.removeEventListener('click', function () {getPlayerChoice ('rock');});
+    
     playAgain();
  }
 }
