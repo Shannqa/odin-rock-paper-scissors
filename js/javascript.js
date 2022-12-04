@@ -61,6 +61,12 @@ function playGame() {
     getFinalScore();
 } 
 
+function playAgain() {
+  rock.removeEventListener('click', function () {getPlayerChoice ('rock');});
+  paper.removeEventListener('click', function () {getPlayerChoice ('paper');});
+  scissors.removeEventListener('click', function () {getPlayerChoice ('scissors');});
+}
+
 function getFinalScore() {
   if (round === 5) {
     if (computerScore < playerScore) {
@@ -71,8 +77,12 @@ function getFinalScore() {
       getScore ("It's a tie!");
     }
     getScore("Final result - Computer: " + computerScore + " Player: " + playerScore);
+    rock.removeEventListener('click', function () {getPlayerChoice ('rock');});
+    playAgain();
  }
 }
+
+
 
 function getScore(score) {
   const p = document.createElement('p');
